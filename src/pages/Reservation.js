@@ -1,13 +1,34 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/reservation.css";
 import Seat from "../components/Seat";
 import { useReservation } from "../contexts/reservation";
 import createPartition from "../utils/create-partition";
-import { MoviesContext } from "../contexts/context";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function Reservation() {
+  const { id } = useParams();
   const { seats, results } = useReservation();
-  const { randomId } = useContext(MoviesContext);
+  const [movie, setMovie] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadMovie();
+  }, [id]);
+
+  const loadMovie = async () => {
+    setLoading(true);
+    const response = await axios.get(`http://localhost:3000/movies/${id}`);
+    setMovie(response.data);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
+  if (loading) {
+    return <div style={{ paddingTop: 50 }}>Loading...</div>;
+  }
+
   return (
     <div className="fakeBody">
       <div
@@ -18,19 +39,13 @@ function Reservation() {
           <div className="card" style={{ width: "18rem", height: "24rem" }}>
             <img
               style={{ width: "18rem", height: "15rem" }}
-              src="https://m.media-amazon.com/images/M/MV5BYWZmZDA1M2MtYWUyYy00MDYzLTg2N2MtYzEyMjY1MjM2MzhkXkEyXkFqcGdeQXVyMjgyNjk3MzE@._V1_Ratio0.6800_AL_.jpg"
+              src={movie.image}
               className="card-img-top"
               alt={"..."}
             />
             <div className="card-body">
-              <h5 className="card-title fs-5">Card title{randomId}</h5>
-              <p className="card-text fs-6">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="/" className="btn btn-primary">
-                Go somewhere
-              </a>
+              <h5 className="card-title fs-5">{movie.title}</h5>
+              <p className="card-text fs-6">{movie.description}</p>
             </div>
           </div>
         </div>
