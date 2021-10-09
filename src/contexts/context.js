@@ -23,21 +23,25 @@ function ContextProvider(props) {
 
   // Request->
   const getAsian = async () => {
-    const responseAsian = await axios.get("http://localhost:3000/asian-movies");
+    const responseAsian = await axios.get(
+      "http://localhost:3000/movies?category=asian"
+    );
     setAsianMovies(responseAsian.data);
     return responseAsian.data;
   };
 
   const getSixtys = async () => {
     const responseSixtys = await axios.get(
-      "http://localhost:3000/sixtys-movies"
+      "http://localhost:3000/movies?category=sixtys"
     );
     setSixty(responseSixtys.data);
     return responseSixtys.data;
   };
 
   const getGiallo = async () => {
-    const responseGiallo = await axios.get("http://localhost:3000/giallo");
+    const responseGiallo = await axios.get(
+      "http://localhost:3000/movies?category=giallo"
+    );
     setMoviesGiallo(responseGiallo.data);
     return responseGiallo.data;
   };
