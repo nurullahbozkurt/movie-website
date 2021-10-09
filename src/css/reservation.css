@@ -1,0 +1,62 @@
+.fakeBody {
+  background-color: black;
+  height: 90vh;
+}
+.container-part {
+  margin-top: 100px;
+}
+.screen {
+  width: 250px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 1px;
+  box-shadow: 0 3px 8px rgb(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+}
+.seat {
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  background-color: rgb(58, 49, 49);
+}
+.part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seat.selected {
+  background-color: burlywood;
+}
+.seat.reserved {
+  background-color: brown;
+}
+.seat:nth-of-type(2) {
+  margin-right: 15px;
+}
+.seat:nth-last-of-type(2) {
+  margin-left: 15px;
+}
+.seat:not(.reserved):hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.info li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 5px;
+}
+.number {
+  font-size: small;
+  color: rgb(175, 153, 153);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
