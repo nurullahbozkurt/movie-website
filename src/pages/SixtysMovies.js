@@ -2,7 +2,7 @@ import React from "react";
 import { MoviesContext } from "../contexts/context";
 import { useContext, useState, useEffect } from "react";
 
-function RouteSixtys() {
+function SixtysMovies() {
   const { sixtys, getRandomSixtys } = useContext(MoviesContext);
   const [siktysMovies, setSixtysMovies] = useState([]);
 
@@ -51,4 +51,4 @@ function RouteSixtys() {
   );
 }
 
-export default RouteSixtys;
+export default SixtysMovies;

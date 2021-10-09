@@ -30,21 +30,21 @@ function MoviesCollapse() {
             </h5>
 
             <Link
-              to="/theBestAsianMovies"
+              to="/the-best-asian-movies"
               type="button"
               className="btn btn-outline-secondary "
             >
               The Best 150 Assian Movies
             </Link>
             <Link
-              to="/gialloMovies"
+              to="/giallo-movies"
               type="button"
               className="btn btn-outline-secondary m-1"
             >
               All Giallo Series
             </Link>
             <a
-              href="/sixtysMovies"
+              href="/sixtys-movies"
               type="button"
               className="btn btn-outline-secondary"
             >

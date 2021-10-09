@@ -5,7 +5,7 @@ import { useReservation } from "../contexts/reservation";
 import createPartition from "../utils/create-partition";
 import { MoviesContext } from "../contexts/context";
 
-function RouteReservation() {
+function Reservation() {
   const { seats, results } = useReservation();
   const { randomId } = useContext(MoviesContext);
   return (
@@ -87,4 +87,4 @@ function RouteReservation() {
   );
 }
 
-export default RouteReservation;
+export default Reservation;

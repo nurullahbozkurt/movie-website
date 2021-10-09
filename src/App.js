@@ -1,12 +1,11 @@
-import AsianMovies from "./components/AsianMovies";
+import { Route, Switch } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Reservation from "./pages/Reservation";
 import GialloMovies from "./components/GialloMovies";
-import MoviesCollapse from "./components/MoviesCollapse";
 import SixtysMovies from "./components/SixtysMovies";
-import RouteAsian from "./route/RouteAsian";
-import { Link, Route, Switch } from "react-router-dom";
-import RouteGiallo from "./route/RouteGiallo";
-import RouteSixtys from "./route/RouteSixtys";
-import RouteReservation from "./route/RouteReservation";
+import BestAsianMovies from "./pages/BestAsianMovies";
+import MoviesCollapse from "./components/MoviesCollapse";
 
 function App() {
   return (
@@ -26,9 +25,6 @@ function App() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <Link to="/reservation" type="button" className="btn btn-danger">
-            Reservation
-          </Link>
 
           <ul className="row  nav" role="tablist">
             <li className="col-3 nav-item">
@@ -79,23 +75,11 @@ function App() {
       <div style={{ marginTop: "90px" }} className="container-fluid ">
         <div className="row" data-bs-offset="0" tabIndex="0">
           <Switch>
-            <Route exact path="/">
-              <AsianMovies />
-              <SixtysMovies />
-              <GialloMovies />
-            </Route>
-            <Route path="/theBestAsianMovies">
-              <RouteAsian />
-            </Route>
-            <Route path="/gialloMovies">
-              <RouteGiallo />
-            </Route>
-            <Route path="/sixtysMovies">
-              <RouteSixtys />
-            </Route>
-            <Route path="/reservation:id">
-              <RouteReservation />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route path="/the-best-asian-movies" component={BestAsianMovies} />
+            <Route path="/giallo-movies" component={GialloMovies} />
+            <Route path="/sixtys-movies" component={SixtysMovies} />
+            <Route path="/reservation/:id" component={Reservation} />
           </Switch>
         </div>
         {/* <!-- //// --> */}

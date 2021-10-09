@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
 import { MoviesContext } from "../contexts/context";
-function RouteAsian() {
+function BestAsianMovies() {
   const { asianMovies, getRandomAsianMovies } = useContext(MoviesContext);
   const [movies, setMovies] = useState([]);
 
@@ -51,4 +51,4 @@ function RouteAsian() {
   );
 }
 
-export default RouteAsian;
+export default BestAsianMovies;

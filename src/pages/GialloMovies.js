@@ -2,7 +2,7 @@ import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { MoviesContext } from "../contexts/context";
 
-function RouteGiallo() {
+function GialloMovies() {
   const { moviesGiallo, getRandomGialloMovies } = useContext(MoviesContext);
   const [movies, setMovies] = useState([]);
 
@@ -54,4 +54,4 @@ function RouteGiallo() {
   );
 }
 
-export default RouteGiallo;
+export default GialloMovies;
