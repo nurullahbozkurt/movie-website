@@ -8,7 +8,7 @@ export const ReservationContext = React.createContext();
 export const useReservation = () => useContext(ReservationContext);
 const partitionSeat = () => {
   const newSeat = [];
-  for (let i = 0; i < 40; i++) {
+  for (let i = 1; i <= 40; i++) {
     newSeat.push({
       number: i,
       selected: false,
