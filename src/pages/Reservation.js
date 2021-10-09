@@ -66,18 +66,6 @@ function Reservation() {
             </div>
           ))}
 
-          <div className="part">
-            <select
-              style={{ width: "190px", marginTop: "10px" }}
-              className="form-select"
-              aria-label="Default select example"
-            >
-              <option>Selected Movie</option>
-              <option value="20">Movie 1</option>
-              <option value="25">Movie 2</option>
-              <option value="30">Movie 3</option>
-            </select>
-          </div>
           <ul className="info">
             <li>
               <div className="seat selected"></div>
