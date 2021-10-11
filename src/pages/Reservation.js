@@ -16,6 +16,7 @@ function Reservation() {
 
   useEffect(() => {
     loadMovie();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const loadMovie = async () => {
