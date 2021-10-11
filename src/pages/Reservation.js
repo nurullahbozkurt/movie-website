@@ -5,6 +5,8 @@ import { useReservation } from "../contexts/reservation";
 import createPartition from "../utils/create-partition";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import alertify from "alertifyjs";
+import "alertifyjs/build/css/alertify.css";
 
 function Reservation() {
   const { id } = useParams();
@@ -28,25 +30,44 @@ function Reservation() {
   if (loading) {
     return <div style={{ paddingTop: 50 }}>Loading...</div>;
   }
+  const alert = (e) => {
+    alertify.alert(
+      "Have a nice watch",
+      `Purchased Seat: ${results.length}  Amount Paid: ${
+        results.length * 20
+      } € `,
+      function () {
+        alertify.success("Ok");
+      }
+    );
+  };
 
   return (
     <div className="fakeBody">
       <div
-        style={{ margin: 0, marginTop: "100px" }}
+        style={{
+          margin: 0,
+          marginTop: "100px",
+          backgroundColor: "black",
+          height: "100%",
+        }}
         className="row container-part d-flex justify-content-center"
       >
-        <div className="col-3 film">
-          <div className="card" style={{ width: "18rem", height: "24rem" }}>
+        <div style={{ height: "25rem", width: "19rem" }} className="col-3 film">
+          <div style={{ height: "100%" }} className="card">
             <img
-              style={{ width: "18rem", height: "15rem" }}
+              style={{ height: "70%", width: "100%" }}
               src={movie.image}
               className="card-img-top"
               alt={"..."}
             />
-            <div className="card-body">
-              <h5 className="card-title fs-5">{movie.title}</h5>
+            <div style={{ padding: "2px" }} className="card-body">
+              <h6 className="card-title fs-6">{movie.title}</h6>
               <p className="card-text fs-6">{movie.description}</p>
             </div>
+            <button onClick={alert} className="btn btn-danger">
+              BUY
+            </button>
           </div>
         </div>
         <div className="col-3">

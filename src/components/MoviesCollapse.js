@@ -58,7 +58,9 @@ function MoviesCollapse() {
               className="card p-2 col-sm-6 col-md-3 col-lg-2 col-xl-2"
               style={{ height: "29rem" }}
             >
-              <img src={m.image} className="card-img-top" alt="..." />
+              <Link to={`/reservation/${m.id}`}>
+                <img src={m.image} className="card-img-top" alt="..." />
+              </Link>
               <button className="btn btn-secondary position-relative ">
                 IMDB
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

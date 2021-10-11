@@ -24,6 +24,7 @@ function ContextProvider(props) {
   // Request->
   const getAsian = async () => {
     const responseAsian = await axios.get(
+      //"https://imdb-api.com/en/API/IMDbList/k_gwphfuyl/ls004285275"
       "http://localhost:3000/movies?category=asian"
     );
     setAsianMovies(responseAsian.data);
@@ -32,6 +33,7 @@ function ContextProvider(props) {
 
   const getSixtys = async () => {
     const responseSixtys = await axios.get(
+      //"https://imdb-api.com/API/IMDbList/k_gwphfuyl/ls095521504"
       "http://localhost:3000/movies?category=sixtys"
     );
     setSixty(responseSixtys.data);
@@ -40,6 +42,7 @@ function ContextProvider(props) {
 
   const getGiallo = async () => {
     const responseGiallo = await axios.get(
+      //"https://imdb-api.com/API/IMDbList/k_gwphfuyl/ls093462543"
       "http://localhost:3000/movies?category=giallo"
     );
     setMoviesGiallo(responseGiallo.data);

@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { MoviesContext } from "../contexts/context";
-import { Link } from "react-router-dom";
+
 import MovieBox from "./MovieBox";
 
 function AsianMovies() {
   const { asianMovies, getRandomAsianMovies } = useContext(MoviesContext);
   const [movies, setMovies] = useState([]);
-  console.log(movies);
 
   useEffect(() => {
     setMovies(getRandomAsianMovies(8));

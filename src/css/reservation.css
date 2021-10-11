@@ -1,6 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
 .fakeBody {
   background-color: black;
-  height: 90vh;
+  height: 100%;
 }
 .container-part {
   margin-top: 100px;
