@@ -21,7 +21,9 @@ function Reservation() {
 
   const loadMovie = async () => {
     setLoading(true);
-    const response = await axios.get(`http://localhost:3000/movies/${id}`);
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/movies/${id}`
+    );
     setMovie(response.data);
     setTimeout(() => {
       setLoading(false);
