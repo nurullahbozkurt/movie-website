@@ -4,12 +4,30 @@ import { MoviesContext } from "../contexts/context";
 import MovieBox from "./MovieBox";
 
 function GialloMovies() {
-  const { moviesGiallo, getRandomGialloMovies } = useContext(MoviesContext);
+  const { moviesGiallo, getRandomGialloMovies, gialloLoading } =
+    useContext(MoviesContext);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     setMovies(getRandomGialloMovies(8));
   }, [moviesGiallo, getRandomGialloMovies]);
+
+  if (!gialloLoading) {
+    return (
+      <>
+        <div
+          style={{
+            marginTop: "150px",
+            margin: "auto",
+          }}
+          class="spinner-border text-danger"
+          role="status"
+        >
+          <span class="sr-only ">wait..</span>
+        </div>
+      </>
+    );
+  }
 
   return (
     <div>

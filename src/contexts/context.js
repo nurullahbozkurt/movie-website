@@ -10,6 +10,9 @@ function ContextProvider(props) {
   const [moviesGiallo, setMoviesGiallo] = useState([]);
   const [asianMovies, setAsianMovies] = useState([]);
   const [sixtys, setSixty] = useState([]);
+  const [asianLoading, setAsianLoading] = useState(false);
+  const [gialloLoading, setGialloLoading] = useState(false);
+  const [sixtysLoading, setSixtysLoading] = useState(false);
 
   const [randomMovies, setRandomMovies] = useState([]);
 
@@ -23,29 +26,35 @@ function ContextProvider(props) {
 
   // Request->
   const getAsian = async () => {
+    setAsianLoading(false);
     const responseAsian = await axios.get(
       //"https://imdb-api.com/en/API/IMDbList/k_gwphfuyl/ls004285275"
       `${process.env.REACT_APP_API_URL}/movies?category=asian`
     );
     setAsianMovies(responseAsian.data);
+    setAsianLoading(true);
     return responseAsian.data;
   };
 
   const getSixtys = async () => {
+    setSixtysLoading(false);
     const responseSixtys = await axios.get(
       //"https://imdb-api.com/API/IMDbList/k_gwphfuyl/ls095521504"
       `${process.env.REACT_APP_API_URL}/movies?category=sixtys`
     );
     setSixty(responseSixtys.data);
+    setSixtysLoading(true);
     return responseSixtys.data;
   };
 
   const getGiallo = async () => {
+    setGialloLoading(false);
     const responseGiallo = await axios.get(
       //"https://imdb-api.com/API/IMDbList/k_gwphfuyl/ls093462543"
       `${process.env.REACT_APP_API_URL}/movies?category=giallo`
     );
     setMoviesGiallo(responseGiallo.data);
+    setGialloLoading(true);
     return responseGiallo.data;
   };
 
@@ -110,6 +119,9 @@ function ContextProvider(props) {
         getRandomAsianMovies,
         getRandomSixtys,
         randomMovies,
+        sixtysLoading,
+        asianLoading,
+        gialloLoading,
         // movies,
         // randomId,
       }}

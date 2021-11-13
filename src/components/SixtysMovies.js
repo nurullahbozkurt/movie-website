@@ -4,12 +4,28 @@ import { useContext, useState, useEffect } from "react";
 import MovieBox from "./MovieBox";
 
 function SixtysMovies() {
-  const { sixtys, getRandomSixtys } = useContext(MoviesContext);
+  const { sixtys, getRandomSixtys, sixtysLoading } = useContext(MoviesContext);
   const [siktysMovies, setSixtysMovies] = useState([]);
 
   useEffect(() => {
     setSixtysMovies(getRandomSixtys(8));
   }, [sixtys, getRandomSixtys]);
+  if (!sixtysLoading) {
+    return (
+      <>
+        <div
+          style={{
+            marginTop: "150px",
+            margin: "auto",
+          }}
+          class="spinner-border text-danger"
+          role="status"
+        >
+          <span class="sr-only ">wait..</span>
+        </div>
+      </>
+    );
+  }
 
   return (
     <div>
